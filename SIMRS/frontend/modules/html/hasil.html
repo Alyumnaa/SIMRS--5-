@@ -1,0 +1,155 @@
+<div class="result-form-shell">
+  <div class="result-form-head">
+    <div class="result-title">
+      <span class="result-kicker">Hasil Pemeriksaan</span>
+      <h3>Formulir tindakan pasien</h3>
+    </div>
+    <span class="result-status-chip">Status: Draft</span>
+  </div>
+
+  <div class="result-form-grid">
+    <aside class="result-side-card">
+      <div class="result-card-title"><span></span>Identitas pasien</div>
+      <div class="patient-identity">
+        <div class="avatar-large">AR</div>
+        <div>
+          <strong id="resultPatientName">Siti Aminah</strong>
+          <small>RM-2408128 · Poli Penyakit Dalam</small>
+        </div>
+      </div>
+
+      <div class="result-patient-meta">
+        <div class="meta-box">
+          <span>Tanggal</span>
+          <strong>10 Sep 2026</strong>
+        </div>
+        <div class="meta-box">
+          <span>Jam</span>
+          <strong>08:45 WIB</strong>
+        </div>
+        <div class="meta-box">
+          <span>Dokter</span>
+          <strong>dr. Andika Rahman</strong>
+        </div>
+        <div class="meta-box">
+          <span>Unit</span>
+          <strong>Poli Umum</strong>
+        </div>
+      </div>
+    </aside>
+
+    <section class="result-main-card">
+      <div class="result-card-title"><span></span>Detail pemeriksaan</div>
+      <form class="result-form-main">
+        <label class="full-span">Nama pasien
+          <input id="resultPatientNameInput" name="patientName" value="Siti Aminah" required />
+        </label>
+
+        <label>NIK pasien
+          <input id="resultPatientNikInput" name="nik" value="3578011402980001" required />
+        </label>
+
+        <label>Nomor RM
+          <input name="recordNumber" value="RM-2408128" required />
+        </label>
+
+        <label>Poli tujuan
+          <select name="clinic">
+            <option selected>Poli Penyakit Dalam</option>
+            <option>Poli Umum</option>
+            <option>Poli Anak</option>
+            <option>Poli Jantung</option>
+          </select>
+        </label>
+
+        <label>Dokter penanggung jawab
+          <select name="doctor">
+            <option selected>dr. Andika Rahman</option>
+            <option>dr. Rina Kurnia</option>
+            <option>dr. Bambang Wijaya</option>
+          </select>
+        </label>
+
+        <label>Keluhan utama
+          <textarea name="complaint" rows="3" placeholder="Tuliskan keluhan utama pasien">Demam dan batuk selama 3 hari</textarea>
+        </label>
+
+        <label>Anamnesis pasien
+          <textarea name="anamnesis" rows="4" placeholder="Catatan anamnesis pasien">Pasien mengeluh demam, batuk, pilek, dan sulit tidur sejak 3 hari. Riwayat alergi obat tidak ada.</textarea>
+        </label>
+
+        <label class="full-span">
+          <span>Voice to Text Anamnesis</span>
+          <div class="voice-bar">
+            <div class="voice-left">
+              <span class="voice-icon">🎙</span>
+              <div class="voice-copy">
+                <strong>Rekaman Anamnesis</strong>
+                <small class="voice-status">Siap merekam · draft lokal</small>
+              </div>
+            </div>
+            <div class="voice-actions">
+              <span class="voice-wave">
+                <span></span><span></span><span></span>
+              </span>
+              <button type="button" class="voice-record">Mulai</button>
+              <button type="button" class="voice-stop">Simpan draft</button>
+            </div>
+          </div>
+        </label>
+
+        <label>Diagnosa utama
+          <textarea name="diagnosis" rows="3" placeholder="Tuliskan diagnosa">Infeksi saluran pernapasan atas</textarea>
+        </label>
+
+        <label>Tindakan medis
+          <textarea name="treatment" rows="4" placeholder="Tuliskan tindakan, terapi, serta respons pasien">Pemeriksaan vital sign, edukasi minum cairan hangat, pemberian obat antitusif, dan observasi 30 menit.</textarea>
+        </label>
+
+        <label>Status hasil
+          <select name="resultStatus">
+            <option selected>Rawat jalan</option>
+            <option>Menunggu</option>
+            <option>Rujuk</option>
+            <option>Rawat inap</option>
+          </select>
+        </label>
+
+        <div class="result-summary">
+          <div class="summary-head">
+            <span>Ringkasan tindakan</span>
+            <span>Dokumen aktif</span>
+          </div>
+          <div class="summary-content">
+            <div>
+              <span>Vital sign</span>
+              <strong>Normal</strong>
+            </div>
+            <div>
+              <span>Obat</span>
+              <strong>Antitusif</strong>
+            </div>
+            <div>
+              <span>Observasi</span>
+              <strong>30 menit</strong>
+            </div>
+            <div>
+              <span>Follow up</span>
+              <strong>3 hari</strong>
+            </div>
+          </div>
+        </div>
+
+        <div class="result-form-actions">
+          <button type="button" class="outline-button" data-action="toast">Batal</button>
+          <button type="button" class="primary-button" id="saveResultButton" data-action="toast">Simpan hasil</button>
+          <span class="save-status" id="saveStatus" hidden>
+            <span class="save-status-icon">✓</span>
+            <span class="save-status-text">Tersimpan</span>
+          </span>
+          <button type="button" class="back-patient-button" id="backToPatientMenu" hidden>Kembali ke menu pasien</button>
+        </div>
+      </form>
+    </section>
+  </div>
+</div>

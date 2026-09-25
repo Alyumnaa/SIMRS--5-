@@ -1,0 +1,197 @@
+.patient-directory-tools {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 10px 14px 12px;
+  border-bottom: 1px solid #dcece7;
+  background: linear-gradient(135deg, #eefaf7 0%, #eef7f4 100%);
+}
+
+.patient-directory-tools::before {
+  content: "";
+  width: 4px;
+  height: 34px;
+  border-radius: 4px;
+  background: var(--teal, #137f7b);
+  margin-right: 8px;
+  display: inline-block;
+}
+
+.search-box {
+  width: min(420px, 100%);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  background: #ffffff;
+  border: 1px solid #badaaf;
+  border-radius: 14px;
+  box-shadow: 0 10px 24px rgba(19, 127, 123, 0.08);
+  transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+}
+
+.search-box:focus-within {
+  border-color: var(--teal, #137f7b);
+  box-shadow: 0 0 0 3px rgba(19, 127, 123, 0.12), 0 12px 26px rgba(19, 127, 123, 0.14);
+  transform: translateY(-1px);
+}
+
+.search-icon {
+  display: inline-grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  background: #eaf7f5;
+  color: var(--teal, #137f7b);
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.search-box input {
+  width: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: var(--ink, #172b35);
+  font-size: 13px;
+  font-family: 'DM Sans', sans-serif;
+}
+
+.search-box input::placeholder {
+  color: #8ca09a;
+}
+
+#patientDirectoryTable .table-wrap {
+  border-radius: 0 0 16px 16px;
+  border-top: 1px solid #eef7f4;
+  background: #fff;
+}
+
+#patientDirectoryTable .data-table {
+  min-width: 690px;
+  background: #fff;
+}
+
+#patientDirectoryTable .data-table thead tr {
+  background: #eef8f6;
+}
+
+#patientDirectoryTable .data-table th {
+  font-size: 11px;
+  color: var(--teal, #137f7b);
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  font-weight: 800;
+  padding: 14px 16px;
+}
+
+#patientDirectoryTable .data-table tbody tr {
+  border-bottom: 1px solid #edf3ef;
+  transition: background 220ms ease, transform 220ms ease;
+}
+
+#patientDirectoryTable .data-table tbody tr:hover {
+  background: #f7fbf9;
+}
+
+#patientDirectoryTable .data-table tbody td {
+  padding: 12px 16px;
+  color: var(--ink, #172b35);
+  border-bottom: 1px solid #eef3ef;
+  font-size: 12px;
+}
+
+#patientDirectoryTable .patient-cell {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+#patientDirectoryTable .patient-cell .avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.12);
+}
+
+#patientDirectoryTable .patient-cell strong {
+  display: block;
+  color: var(--ink, #172b35);
+  font-size: 13px;
+  margin-bottom: 4px;
+}
+
+#patientDirectoryTable .patient-cell small {
+  color: var(--muted, #71818a);
+  font-size: 11px;
+}
+
+#patientDirectoryTable .status {
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.7px;
+}
+
+#patientDirectoryTable .status.orange {
+  background: #ffeedd;
+  color: #b66a25;
+}
+
+#patientDirectoryTable .status.green {
+  background: #dff8ea;
+  color: #1b8b60;
+}
+
+#patientDirectoryTable .status.blue {
+  background: #dcecfb;
+  color: #276bbd;
+}
+
+#patientDirectoryTable .status.red {
+  background: #ffdede;
+  color: #a84d52;
+}
+
+.edit-patient-button {
+  padding: 7px 12px;
+  border-radius: 10px;
+  background: var(--teal, #137f7b);
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 800;
+  border: 1px solid var(--teal, #137f7b);
+  transition: background 240ms ease, transform 240ms ease, box-shadow 240ms ease;
+}
+
+.edit-patient-button:hover {
+  background: var(--teal-deep, #0e6566);
+  box-shadow: 0 8px 14px rgba(19, 127, 123, 0.18);
+}
+
+.empty-search {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 90px;
+  color: var(--muted, #71818a);
+  font-weight: 700;
+}
+
+@media (max-width: 740px) {
+  .patient-directory-tools {
+    justify-content: stretch;
+  }
+
+  .search-box {
+    width: 100%;
+  }
+}

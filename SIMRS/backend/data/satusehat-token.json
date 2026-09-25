@@ -1,0 +1,22 @@
+{
+  "refresh_token_expires_in": "0",
+  "api_product_list": "[api-sandbox]",
+  "api_product_list_json": [
+    "api-sandbox"
+  ],
+  "organization_name": "ihs-prod-1",
+  "developer.email": "nawrfun@gmail.com",
+  "token_type": "BearerToken",
+  "issued_at": "1790252591252",
+  "client_id": "A9W0ThWbcxRfZnpwknxiMeMK0z0XuhdDKugOFuDnVHNGnU84",
+  "access_token": "Jhbw8zgyFGGzxQAn43Mz2KSmvtWB",
+  "application_name": "a0e3025b-d3df-4626-b4c1-27136e1433d8",
+  "scope": "",
+  "expires_in": "14399",
+  "refresh_count": "0",
+  "status": "approved",
+  "retry_at": 0,
+  "expires_at": 1790266960315,
+  "updated_at": "2026-09-24T12:23:11.315Z",
+  "client_secret": "zM1oiYIrfeJEkinieMkULImms3sAqPiO2EACc0jvlbs6WDWNuqgrxnW3FBy5uZmy"
+}

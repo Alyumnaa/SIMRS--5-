@@ -1,0 +1,54 @@
+<div class="metrics-grid">
+  <button class="metric-card metric-link" type="button" data-metric-detail="safe-stock"><div class="metric-top"><span>Stok obat aman</span><i class="metric-icon mint">⌁</i></div><h3>76%</h3><span class="trend">24 item kritis</span><span class="metric-action">Lihat detail →</span></button>
+  <button class="metric-card metric-link" type="button" data-metric-detail="prescriptions"><div class="metric-top"><span>Resep hari ini</span><i class="metric-icon blue">＋</i></div><h3>428</h3><span class="trend">+32 dari kemarin</span><span class="metric-action">Lihat detail →</span></button>
+  <button class="metric-card metric-link" type="button" data-metric-detail="restock"><div class="metric-top"><span>Obat perlu restock</span><i class="metric-icon gold">!</i></div><h3>18</h3><span class="trend">7 item urgent</span><span class="metric-action">Lihat detail →</span></button>
+  <button class="metric-card metric-link" type="button" data-metric-detail="dispensing"><div class="metric-top"><span>Penyerahan</span><i class="metric-icon peach">✓</i></div><h3>361</h3><span class="trend">84% selesai</span><span class="metric-action">Lihat detail →</span></button>
+</div>
+<section class="metric-detail-page" id="metricDetailPage" hidden>
+  <button class="back-button" id="closeMetricDetail" type="button">← Kembali ke ringkasan Farmasi</button>
+  <div class="metric-detail-heading"><span class="module-kicker">DETAIL LAYANAN FARMASI</span><h2 id="metricDetailTitle"></h2><p id="metricDetailDescription"></p></div>
+  <div class="detail-stat-grid" id="metricDetailStats"></div>
+  <div class="panel detail-list-panel"><div class="panel-header"><div><h3 id="metricDetailListTitle"></h3><p id="metricDetailListDescription"></p></div></div><div class="table-wrap"><table class="data-table"><thead><tr><th>Item</th><th>Detail</th><th>Status</th></tr></thead><tbody id="metricDetailRows"></tbody></table></div></div>
+</section>
+<section class="panel trend-panel farmasi-overview">
+  <div class="panel-header"><div><h3>Tren layanan farmasi</h3><p>Perbandingan penjualan dan waktu tunggu per bulan</p></div><div class="chart-legend"><span><i class="legend-dot sales"></i>Penjualan</span><span><i class="legend-dot waiting"></i>Waktu tunggu</span></div></div>
+  <div class="chart-toolbar"><span class="chart-summary"><strong id="chartSummary">Penjualan meningkat 18%</strong><small>dibandingkan 6 bulan sebelumnya</small></span><select id="chartMetric" aria-label="Pilih metrik grafik"><option value="sales">Penjualan obat</option><option value="waiting">Waktu tunggu</option></select></div>
+  <div class="line-chart-wrap"><svg class="line-chart" viewBox="0 0 760 240" role="img" aria-labelledby="chartTitle chartDescription"><title id="chartTitle">Grafik garis tren farmasi</title><desc id="chartDescription">Grafik tren penjualan obat dan waktu tunggu dari Januari sampai Juni.</desc><g class="chart-grid"><line x1="52" y1="24" x2="735" y2="24"></line><line x1="52" y1="78" x2="735" y2="78"></line><line x1="52" y1="132" x2="735" y2="132"></line><line x1="52" y1="186" x2="735" y2="186"></line></g><g class="chart-labels"><text x="12" y="28">500</text><text x="18" y="82">350</text><text x="18" y="136">200</text><text x="25" y="190">50</text><text x="58" y="220">Jan</text><text x="190" y="220">Feb</text><text x="325" y="220">Mar</text><text x="458" y="220">Apr</text><text x="590" y="220">Mei</text><text x="722" y="220">Jun</text></g><polyline class="chart-line sales-line" points="60,143 195,126 330,133 465,95 600,106 730,69"></polyline><polyline class="chart-line waiting-line" points="60,100 195,111 330,91 465,105 600,78 730,87"></polyline><g class="chart-points sales-points"><circle cx="60" cy="143" r="4"></circle><circle cx="195" cy="126" r="4"></circle><circle cx="330" cy="133" r="4"></circle><circle cx="465" cy="95" r="4"></circle><circle cx="600" cy="106" r="4"></circle><circle cx="730" cy="69" r="4"></circle></g><g class="chart-points waiting-points"><circle cx="60" cy="100" r="4"></circle><circle cx="195" cy="111" r="4"></circle><circle cx="330" cy="91" r="4"></circle><circle cx="465" cy="105" r="4"></circle><circle cx="600" cy="78" r="4"></circle><circle cx="730" cy="87" r="4"></circle></g></svg></div>
+</section>
+<section class="panel farmasi-overview">
+  <div class="panel-header"><div><h3>Farmasi dan obat</h3><p>Resep, stok, dan pengiriman obat</p></div><button class="text-button" data-action="toast">Export CSV ⇩</button></div>
+  <div class="pharmacy-tools">
+    <label class="search-field"><span aria-hidden="true">⌕</span><input id="medicineSearch" type="search" placeholder="Cari nama atau golongan obat..." autocomplete="off" /><span id="medicineCount" class="search-count">12 obat</span></label>
+    <button class="outline-button" id="nearbyPharmacyButton" type="button">⌖ <span>Cari apotek terdekat</span></button>
+  </div>
+  <div class="table-wrap">
+    <table class="data-table" id="medicineTable">
+      <thead><tr><th>Item</th><th>Golongan</th><th>Stok</th><th>Permintaan</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr data-medicine="amoxicillin antibiotik" data-detail="amoxicillin"><td><button class="medicine-link" type="button">Amoxicillin 500 mg</button><small>Kapsul</small></td><td>Antibiotik</td><td>128</td><td>22</td><td><span class="status green">Tersedia</span></td></tr>
+        <tr data-medicine="paracetamol analgesik antipiretik" data-detail="paracetamol"><td><button class="medicine-link" type="button">Paracetamol 500 mg</button><small>Tablet</small></td><td>Analgesik</td><td>54</td><td>08</td><td><span class="status green">Tersedia</span></td></tr>
+        <tr data-medicine="ibuprofen analgesik antiinflamasi" data-detail="ibuprofen"><td><button class="medicine-link" type="button">Ibuprofen 400 mg</button><small>Tablet</small></td><td>Antiinflamasi</td><td>42</td><td>17</td><td><span class="status green">Tersedia</span></td></tr>
+        <tr data-medicine="omeprazole lambung" data-detail="omeprazole"><td><button class="medicine-link" type="button">Omeprazole 20 mg</button><small>Kapsul</small></td><td>Lambung</td><td>36</td><td>11</td><td><span class="status green">Tersedia</span></td></tr>
+        <tr data-medicine="metformin diabetes" data-detail="metformin"><td><button class="medicine-link" type="button">Metformin 500 mg</button><small>Tablet</small></td><td>Antidiabetes</td><td>67</td><td>19</td><td><span class="status green">Tersedia</span></td></tr>
+        <tr data-medicine="amlodipine hipertensi jantung" data-detail="amlodipine"><td><button class="medicine-link" type="button">Amlodipine 5 mg</button><small>Tablet</small></td><td>Antihipertensi</td><td>29</td><td>14</td><td><span class="status green">Tersedia</span></td></tr>
+        <tr data-medicine="cetirizine alergi antihistamin" data-detail="cetirizine"><td><button class="medicine-link" type="button">Cetirizine 10 mg</button><small>Tablet</small></td><td>Antihistamin</td><td>31</td><td>09</td><td><span class="status green">Tersedia</span></td></tr>
+        <tr data-medicine="salbutamol asma pernapasan" data-detail="salbutamol"><td><button class="medicine-link" type="button">Salbutamol 2 mg</button><small>Tablet</small></td><td>Pernapasan</td><td>24</td><td>12</td><td><span class="status green">Tersedia</span></td></tr>
+        <tr data-medicine="furosemide diuretik jantung" data-detail="furosemide"><td><button class="medicine-link" type="button">Furosemide 40 mg</button><small>Tablet</small></td><td>Diuretik</td><td>18</td><td>10</td><td><span class="status orange">Restock</span></td></tr>
+        <tr data-medicine="insulin glargine diabetes" data-detail="insulin"><td><button class="medicine-link" type="button">Insulin Glargine</button><small>Pena injeksi</small></td><td>Antidiabetes</td><td>05</td><td>15</td><td><span class="status orange">Restock</span></td></tr>
+        <tr data-medicine="ceftriaxone antibiotik" data-detail="ceftriaxone"><td><button class="medicine-link" type="button">Ceftriaxone 1 g</button><small>Injeksi</small></td><td>Antibiotik</td><td>07</td><td>13</td><td><span class="status orange">Restock</span></td></tr>
+        <tr data-medicine="loperamide diare pencernaan" data-detail="loperamide"><td><button class="medicine-link" type="button">Loperamide 2 mg</button><small>Kapsul</small></td><td>Pencernaan</td><td>22</td><td>06</td><td><span class="status green">Tersedia</span></td></tr>
+      </tbody>
+    </table>
+    <p class="empty-state" id="medicineEmpty" hidden>Obat tidak ditemukan. Coba kata kunci lain atau telusuri apotek terdekat.</p>
+  </div>
+</section>
+<section class="medicine-detail farmasi-overview" id="medicineDetail" hidden>
+  <button class="back-button" id="closeMedicineDetail" type="button">← Kembali ke katalog</button>
+  <div class="medicine-detail-card"><img id="medicineImage" src="" alt="" /><div class="medicine-detail-copy"><span class="module-kicker">INFORMASI OBAT</span><h2 id="medicineDetailTitle"></h2><p id="medicineDetailCategory"></p><div class="medicine-facts"><div><span>Kegunaan umum</span><strong id="medicineUse"></strong></div><div><span>Bentuk sediaan</span><strong id="medicineForm"></strong></div><div><span>Catatan</span><strong id="medicineNote"></strong></div></div><p class="assistant-disclaimer">Informasi ini bersifat edukasi dan tidak menggantikan pemeriksaan, resep, atau validasi dokter dan apoteker.</p></div></div>
+</section>
+<section class="assistant-panel farmasi-overview">
+  <div class="assistant-heading"><div class="assistant-icon">✦</div><div><span class="module-kicker">ASISTEN KEPUTUSAN</span><h3>Alternatif obat berbasis AI</h3><p>Gunakan untuk menemukan opsi yang perlu dikonfirmasi dokter atau apoteker.</p></div><span class="assistant-badge">Bantuan klinis</span></div>
+  <div class="assistant-form"><label for="alternativeMedicine">Obat yang habis atau tidak tersedia</label><div class="assistant-input-row"><select id="alternativeMedicine"><option value="">Pilih obat...</option><option value="amoxicillin">Amoxicillin</option><option value="paracetamol">Paracetamol</option><option value="ibuprofen">Ibuprofen</option><option value="omeprazole">Omeprazole</option><option value="metformin">Metformin</option><option value="amlodipine">Amlodipine</option><option value="cetirizine">Cetirizine</option><option value="salbutamol">Salbutamol</option></select><button class="primary-button" id="alternativeButton" type="button">✦ Analisis alternatif</button></div></div>
+  <div class="assistant-result" id="alternativeResult" hidden></div>
+  <p class="assistant-disclaimer">Rekomendasi ini adalah simulasi berbasis golongan obat, bukan resep otomatis. Periksa indikasi, alergi, usia, kehamilan, fungsi ginjal/hati, interaksi, dosis, dan formularium sebelum mengganti terapi.</p>
+</section>

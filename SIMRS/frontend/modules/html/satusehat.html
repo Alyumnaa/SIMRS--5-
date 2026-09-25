@@ -1,0 +1,114 @@
+<div class="metrics-grid">
+  <div class="metric-card">
+    <div class="metric-top"><span>API status</span><i class="metric-icon mint">◎</i></div>
+    <h3>Online</h3><span class="trend">Sinyal aktif 99,92%</span>
+  </div>
+  <div class="metric-card">
+    <div class="metric-top"><span>Data terkirim</span><i class="metric-icon blue">⇄</i></div>
+    <h3>1.284</h3><span class="trend">+184 hari ini</span>
+  </div>
+  <div class="metric-card">
+    <div class="metric-top"><span>Dokumen pending</span><i class="metric-icon gold">◔</i></div>
+    <h3>12</h3><span class="trend">4 butuh validasi</span>
+  </div>
+</div>
+
+<div class="lower-grid">
+  <section class="panel">
+    <div class="panel-header">
+      <div><h3>Status integrasi</h3><p>Ringkasan koneksi dan layanan SatuSehat</p></div>
+      <button class="text-button" data-action="toast" data-message="Sinkronisasi SatuSehat berhasil diperbarui.">Sinkronisasi ↗</button>
+    </div>
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>Layanan</th><th>Endpoint</th><th>Terakhir sync</th><th>Status</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Pasien</strong></td><td>Patient API</td><td>08:42 WIB</td><td><span class="status green">Tersambung</span></td></tr>
+          <tr><td><strong>Encounter</strong></td><td>Encounter API</td><td>08:41 WIB</td><td><span class="status green">Tersambung</span></td></tr>
+          <tr><td><strong>Observation</strong></td><td>Observation API</td><td>08:38 WIB</td><td><span class="status orange">Warning</span></td></tr>
+          <tr><td><strong>Medication</strong></td><td>Medication API</td><td>08:36 WIB</td><td><span class="status green">Tersambung</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="panel">
+    <div class="panel-header">
+      <div><h3>Log interoperabilitas</h3><p>Riwayat pengiriman data terbaru</p></div>
+      <button class="text-button" data-action="toast" data-message="Log interoperabilitas siap diekspor.">Export CSV ⇩</button>
+    </div>
+    <div class="schedule-list">
+      <div class="schedule-item"><span class="schedule-time">08:42</span><div><strong>Data pasien 1.284 berhasil dikirim</strong><small>Bundle FHIR: Patient / Encounter</small></div><i class="dot-line"></i></div>
+      <div class="schedule-item"><span class="schedule-time">08:31</span><div><strong>Validasi kode ICD-10 selesai</strong><small>Checklist diagnosis otomatis</small></div><i class="dot-line yellow"></i></div>
+      <div class="schedule-item"><span class="schedule-time">08:14</span><div><strong>3 rekam medik menunggu review</strong><small>Dokumen laboratorium &amp; radiologi</small></div><i class="dot-line red"></i></div>
+      <div class="schedule-item"><span class="schedule-time">07:50</span><div><strong>Refresh token berstatus valid</strong><small>Credential SatuSehat aktif</small></div><i class="dot-line"></i></div>
+    </div>
+  </section>
+</div>
+
+<section class="panel">
+  <div class="panel-header">
+    <div><h3>Status koneksi</h3><p>Backend SatuSehat berjalan dalam mode konfigurasi tersimpan di server.</p></div>
+    <span class="status blue" id="satusehatConnectionStatus">Siap terhubung</span>
+  </div>
+
+  <div class="form-actions" style="margin-top: 18px;">
+    <button type="button" class="outline-button" id="satusehatTestConnection">Uji koneksi</button>
+    <button type="button" class="primary-button" id="satusehatSyncNow">Sinkronisasi sekarang</button>
+  </div>
+  <p style="margin-top: 12px; color: #71818a; font-size: 12px;" id="satusehatLastSyncText">Belum ada sinkronisasi terbaru.</p>
+
+  <div style="margin-top: 18px; border-top: 1px solid #e5eceb; padding-top: 18px;">
+    <div class="panel-header" style="padding: 0; border: 0; margin-bottom: 12px;">
+      <div>
+        <h3 style="margin: 0;">Uji langsung ke SatuSehat</h3>
+        <p style="margin: 4px 0 0;">Kirim data NIK dummy 1000000000000001 untuk mengecek POST ke endpoint FHIR.</p>
+      </div>
+    </div>
+    <div class="form-actions" style="margin-top: 0;">
+      <button type="button" class="primary-button" id="satusehatSendDummyPatient">Kirim data dummy</button>
+    </div>
+    <p id="satusehatDummyResult" style="margin-top: 12px; color: #465a63; font-size: 12px; white-space: pre-wrap;">Belum ada hasil pengujian.</p>
+  </div>
+</section>
+
+<section class="panel">
+  <div class="panel-header">
+    <div><h3>Kirim Encounter</h3><p>Buat data kunjungan pasien yang terhubung ke Patient SatuSehat.</p></div>
+    <span class="status blue">FHIR Encounter</span>
+  </div>
+  <div class="form-row" style="margin-top: 18px;">
+    <label>Patient ID SatuSehat<input id="satusehatEncounterPatientId" value="P20395977056" placeholder="Contoh: Pxxxxxxxxxxx" /></label>
+    <label>Jenis kunjungan<select id="satusehatEncounterClass"><option value="AMB">Rawat jalan</option><option value="EMER">Gawat darurat</option><option value="IMP">Rawat inap</option></select></label>
+  </div>
+  <div class="form-row" style="margin-top: 14px;">
+    <label>Location ID SatuSehat<input id="satusehatEncounterLocationId" placeholder="Contoh: Lxxxxxxxxxxx" /></label>
+    <label>Practitioner ID SatuSehat<input id="satusehatEncounterPractitionerId" placeholder="Contoh: Pxxxxxxxxxxx" /></label>
+  </div>
+  <div class="form-actions" style="margin-top: 14px;">
+    <button type="button" class="primary-button" id="satusehatSendEncounter">Kirim Encounter</button>
+  </div>
+  <p id="satusehatEncounterResult" style="margin-top: 12px; color: #465a63; font-size: 12px; white-space: pre-wrap;">Belum ada Encounter yang dikirim.</p>
+</section>
+
+<section class="panel">
+  <div class="panel-header">
+    <div><h3>Manajemen data SatuSehat</h3><p>Monitoring penerimaan, validasi, dan kirim berkas ke platform nasional</p></div>
+    <span class="status blue">3 item prioritas</span>
+  </div>
+  <div class="table-wrap">
+    <table class="data-table">
+      <thead>
+        <tr><th>Jenis data</th><th>Jumlah</th><th>Periode</th><th>Validasi</th><th>Status kirim</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Rekam medis pasien</strong></td><td>842</td><td>Hari ini</td><td>98,4%</td><td><span class="status green">Berhasil</span></td></tr>
+        <tr><td><strong>Hasil laboratorium</strong></td><td>216</td><td>Hari ini</td><td>96,1%</td><td><span class="status orange">Review</span></td></tr>
+        <tr><td><strong>Resep obat</strong></td><td>174</td><td>Hari ini</td><td>99,2%</td><td><span class="status green">Berhasil</span></td></tr>
+        <tr><td><strong>Referensi pasien</strong></td><td>52</td><td>Hari ini</td><td>94,6%</td><td><span class="status blue">Pending</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>

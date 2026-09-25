@@ -1,0 +1,114 @@
+const coreIgd = window.SIMRS_CORE;
+window.SIMRS_MODULES.igd = {
+  data: {
+    title: 'Instalasi gawat darurat',
+    desc: 'Koordinasikan triase, tindakan, dan status pasien gawat darurat dengan cepat.',
+    owner: 'dr. Fajar Nugroho',
+    icon: '✚',
+    eyebrow: 'RESPONS KEGAWATDARURATAN',
+    heading: 'IGD',
+    subtitle: 'Prioritaskan tindakan dan pantau kondisi pasien secara langsung.'
+  },
+  render() {
+    return `
+      <div class="metrics-grid">
+        ${coreIgd.metric('Pasien Aktif', '12', '4 kritis', '✚', 'red')}
+        ${coreIgd.metric('Menunggu Triase', '03', '2 pasien baru', '⏱', 'blue')}
+        ${coreIgd.metric('Bed IGD', '08', '5 tersedia', '▣', 'mint')}
+        ${coreIgd.metric('Alert', '06', '2 prioritas merah', '!', 'peach')}
+      </div>
+      <section class="panel">
+        <div class="panel-header">
+          <div><h3>Pasien Aktif</h3><p>Daftar pasien dan detail kondisi saat ini</p></div>
+          <button class="text-button" data-action="export-csv" data-message="Data pasien IGD berhasil diekspor ke CSV">Export CSV ⇩</button>
+        </div>
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead><tr><th>Pasien</th><th>Unit</th><th>Triase</th><th>Status</th><th>Detail</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Rudi Hermawan</strong></td><td>IGD</td><td>Merah</td><td><span class="status red">Kritis</span></td><td>Resusitasi</td></tr>
+              <tr><td><strong>Wati Lestari</strong></td><td>IGD</td><td>Kuning</td><td><span class="status orange">Observasi</span></td><td>Evaluasi dokter</td></tr>
+              <tr><td><strong>Aditya R</strong></td><td>IGD</td><td>Hijau</td><td><span class="status green">Siap pulang</span></td><td>Monitoring ringan</td></tr>
+              <tr><td><strong>Sari Ningsih</strong></td><td>IGD</td><td>Merah</td><td><span class="status red">Kritis</span></td><td>Penanganan cepat</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+      <div class="lower-grid">
+        <section class="panel">
+          <div class="panel-header">
+            <div><h3>Triase</h3><p>Distribusi kategori pasien berdasarkan urgensi</p></div>
+            <button class="text-button" data-action="toast" data-message="Data triase berhasil diperbarui">Update ↻</button>
+          </div>
+          <div class="schedule-list">
+            <div class="schedule-item"><span class="schedule-time">03</span><div><strong>Menunggu Triase</strong><small>Pasien baru menunggu penilaian awal</small></div><i class="dot-line yellow"></i></div>
+            <div class="schedule-item"><span class="schedule-time">02</span><div><strong>Triase Merah</strong><small>Resusitasi aktif dan monitoring ketat</small></div><i class="dot-line red"></i></div>
+            <div class="schedule-item"><span class="schedule-time">05</span><div><strong>Triase Kuning</strong><small>Perlu observasi dan evaluasi lanjutan</small></div><i class="dot-line orange"></i></div>
+            <div class="schedule-item"><span class="schedule-time">02</span><div><strong>Triase Hijau</strong><small>Pasien stabil dengan perawatan ringan</small></div><i class="dot-line green"></i></div>
+          </div>
+        </section>
+        <section class="panel">
+          <div class="panel-header">
+            <div><h3>Pelayanan</h3><p>Proses klinis yang sedang berjalan</p></div>
+            <button class="text-button" data-action="show-history" data-title="Riwayat Pelayanan">Riwayat ↗</button>
+          </div>
+          <div class="schedule-list">
+            <div class="schedule-item"><span class="schedule-time">04</span><div><strong>Pemeriksaan Dokter</strong><small>Dokter sedang melakukan assessment</small></div><i class="dot-line blue"></i></div>
+            <div class="schedule-item"><span class="schedule-time">03</span><div><strong>Tindakan</strong><small>Prosedur dan penanganan bedah minor</small></div><i class="dot-line red"></i></div>
+            <div class="schedule-item"><span class="schedule-time">02</span><div><strong>Obat</strong><small>Distribusi obat darurat dan analgetik</small></div><i class="dot-line green"></i></div>
+            <div class="schedule-item"><span class="schedule-time">01</span><div><strong>Laboratorium</strong><small>Hasil pemeriksaan menunggu review</small></div><i class="dot-line yellow"></i></div>
+            <div class="schedule-item"><span class="schedule-time">01</span><div><strong>Radiologi</strong><small>Foto thorax dan CT scan on progress</small></div><i class="dot-line purple"></i></div>
+          </div>
+        </section>
+      </div>
+      <div class="lower-grid">
+        <section class="panel">
+          <div class="panel-header">
+            <div><h3>Bed IGD</h3><p>Monitoring ketersediaan ruang perawatan</p></div>
+            <button class="text-button" data-action="export-csv" data-message="Data bed IGD berhasil diekspor ke CSV">Export Bed ⇩</button>
+          </div>
+          <div class="table-wrap">
+            <table class="data-table">
+              <thead><tr><th>Bed</th><th>Nama Pasien</th><th>Status</th></tr></thead>
+              <tbody>
+                <tr><td>Bed 01</td><td>Rudi Hermawan</td><td><span class="status red">Terisi</span></td></tr>
+                <tr><td>Bed 02</td><td>Wati Lestari</td><td><span class="status orange">Observasi</span></td></tr>
+                <tr><td>Bed 03</td><td>Kosong</td><td><span class="status green">Siap pakai</span></td></tr>
+                <tr><td>Bed 04</td><td>Kosong</td><td><span class="status green">Siap pakai</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+        <section class="panel">
+          <div class="panel-header">
+            <div><h3>Monitoring</h3><p>Pasien kritis dan status real-time</p></div>
+            <button class="text-button" data-action="show-alerts" data-title="Alert Monitoring Aktif">Alert aktif</button>
+          </div>
+          <div class="schedule-list">
+            <div class="schedule-item"><span class="schedule-time">02</span><div><strong>Pasien Kritis</strong><small>Memerlukan observasi intensif</small></div><i class="dot-line red"></i></div>
+            <div class="schedule-item"><span class="schedule-time">03</span><div><strong>Alert</strong><small>Peringatan tekanan darah dan saturasi</small></div><i class="dot-line yellow"></i></div>
+            <div class="schedule-item"><span class="schedule-time">ON</span><div><strong>Status Real-time</strong><small>Monitor aktif terhubung 24 jam</small></div><i class="dot-line green"></i></div>
+          </div>
+        </section>
+      </div>
+      <section class="panel">
+        <div class="panel-header">
+          <div><h3>Disposisi</h3><p>Keputusan pasien setelah evaluasi</p></div>
+          <button class="text-button" data-action="export-csv" data-message="Data disposisi berhasil diekspor ke CSV">Export Disposisi ⇩</button>
+        </div>
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead><tr><th>Disposisi</th><th>Jumlah</th><th>Keterangan</th><th>Status</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Pulang</strong></td><td>03</td><td>Pasien stabil dan siap pulang</td><td><span class="status green">Selesai</span></td></tr>
+              <tr><td><strong>Rawat Inap</strong></td><td>04</td><td>Perlu ruang perawatan lanjutan</td><td><span class="status blue">Diproses</span></td></tr>
+              <tr><td><strong>Rujuk</strong></td><td>02</td><td>Dirujuk ke rumah sakit rujukan</td><td><span class="status orange">Menunggu</span></td></tr>
+              <tr><td><strong>Transfer</strong></td><td>01</td><td>Transfer antar unit sesuai kebutuhan</td><td><span class="status red">Urgent</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    `;
+  }
+};
+

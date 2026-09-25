@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#f5f7fb" />
+  <title>SIMRS | Rumah Sakit Nusa Medika</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="profile.css" />
+  <link rel="stylesheet" href="login.css" />
+  <link rel="stylesheet" href="result-form.css" />
+  <link rel="stylesheet" href="voice.css" />
+  <link rel="stylesheet" href="patient-directory.css" />
+</head>
+<body>
+  <section class="login-screen" id="loginScreen">
+    <div class="login-visual"><div class="login-brand"><div class="brand-mark">N<span>+</span></div><strong>Nusa Medika</strong></div><div class="login-message"><span class="eyebrow">SISTEM INFORMASI RUMAH SAKIT</span><h1>Semua layanan,<br><em>satu kendali.</em></h1><p>Kelola operasional rumah sakit dengan data yang terhubung, akurat, dan siap digunakan.</p></div><div class="login-visual-footer"><span>RUMAH SAKIT NUSA MEDIKA</span><span>v2.4.0</span></div></div>
+    <div class="login-panel"><div class="login-panel-inner"><div class="login-panel-heading"><span class="eyebrow">SELAMAT DATANG KEMBALI</span><h2>Masuk ke SIMRS</h2><p>Gunakan akun kerja Anda untuk melanjutkan.</p></div><form id="loginForm" class="login-form"><label>Email atau ID pengguna<input id="loginIdentity" name="identity" autocomplete="username" placeholder="Masukkan ID pengguna" required /></label><label>Password<div class="password-field"><input id="loginPassword" name="password" type="password" autocomplete="current-password" placeholder="Masukkan password" required /><button type="button" id="togglePassword" aria-label="Tampilkan password">Lihat</button></div></label><div class="login-options"><label class="remember-option"><input type="checkbox" name="remember" /> <span>Ingat saya</span></label><button type="button" class="forgot-button" id="forgotPassword">Lupa password?</button></div><p class="login-error" id="loginError" role="alert"></p><button class="primary-button login-submit" type="submit">Masuk ke dashboard <span>→</span></button></form><div class="login-hint"><span>ⓘ</span><p>Demo: gunakan ID <strong>admin</strong> dan password <strong>simrs123</strong></p></div><p class="login-support">Mengalami kendala? <button type="button" id="loginSupport">Hubungi IT Support</button></p></div></div>
+  </section>
+  <div class="app-shell" id="appShell">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand">
+        <div class="brand-mark">N<span>+</span></div>
+        <div><strong>Nusa Medika</strong><small>SIMRS TERPADU</small></div>
+      </div>
+      <div class="facility-status"><span class="status-dot"></span><span>Operasional normal</span><b>24/7</b></div>
+      <nav class="main-nav" aria-label="Navigasi utama">
+        <p class="nav-label">Workspace</p>
+        <button class="nav-item active" data-tab="dashboard"><span class="nav-icon">⌂</span><span>Dashboard</span></button>
+        <button class="nav-item" data-tab="pasien"><span class="nav-icon">♙</span><span>Pasien</span><em>1.284</em></button>
+        <button class="nav-item" data-tab="rawat-jalan"><span class="nav-icon">＋</span><span>Rawat Jalan</span></button>
+        <button class="nav-item" data-tab="rawat-inap"><span class="nav-icon">▣</span><span>Rawat Inap</span><em>86%</em></button>
+        <button class="nav-item" data-tab="igd"><span class="nav-icon">✚</span><span>IGD</span><em class="alert-count">12</em></button>
+        <p class="nav-label">Layanan</p>
+        <button class="nav-item" data-tab="farmasi"><span class="nav-icon">⌁</span><span>Farmasi</span></button>
+        <button class="nav-item" data-tab="laboratorium"><span class="nav-icon">◉</span><span>Laboratorium</span></button>
+        <button class="nav-item" data-tab="keuangan"><span class="nav-icon">◈</span><span>Keuangan</span></button>
+        <button class="nav-item" data-tab="satusehat"><span class="nav-icon">◎</span><span>SatuSehat</span><em class="alert-count">3</em></button>
+        <button class="nav-item" data-tab="laporan"><span class="nav-icon">▤</span><span>Laporan</span></button>
+        <p class="nav-label">Akun</p>
+        <button class="nav-item" data-tab="profil"><span class="nav-icon">◉</span><span>Profil Saya</span></button>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="help-box"><span class="help-icon">?</span><div><strong>Butuh bantuan?</strong><small>Hubungi IT Support</small></div><span class="arrow">›</span></div>
+        <div class="user-mini"><div class="avatar avatar-teal">AR</div><div><strong>dr. Andika Rahman</strong><small>Administrator</small></div><span class="more">•••</span></div>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <button class="mobile-menu" id="mobileMenu" aria-label="Buka menu">☰</button>
+        <div class="breadcrumb"><span>SIMRS</span><b>/</b><strong id="breadcrumbTitle">Dashboard</strong></div>
+        <div class="topbar-actions"><button class="icon-button" title="Notifikasi">♧<i></i></button><button class="icon-button" title="Pengaturan">⚙</button><div class="top-date"><span>Senin, 12 Agustus 2024</span><strong id="clock">08:42 WIB</strong></div></div>
+      </header>
+      <div class="page-content">
+        <div class="page-heading"><div><p class="eyebrow" id="eyebrow">RINGKASAN OPERASIONAL</p><h1 id="pageTitle">Selamat pagi, dr. Andika</h1><p class="page-subtitle" id="pageSubtitle">Pantau aktivitas rumah sakit hari ini dalam satu tampilan.</p></div><div class="heading-actions"><button class="outline-button" id="exportButton">⇩ <span>Export laporan</span></button><button class="primary-button" id="addPatientButton">＋ <span>Tambah pasien</span></button></div></div>
+
+        <section class="module-profile" id="moduleProfile"><div class="module-icon" id="moduleIcon">⌂</div><div class="module-copy"><span class="module-kicker">PROFIL MODUL AKTIF</span><h2 id="moduleTitle">Pusat kendali rumah sakit</h2><p id="moduleDescription">Satu ruang kerja untuk memantau operasional, kapasitas, dan kualitas layanan Nusa Medika.</p></div><div class="module-meta"><div><span>Penanggung jawab</span><strong id="moduleOwner">dr. Andika Rahman</strong></div><div><span>Terakhir diperbarui</span><strong>Hari ini, 08:40 WIB</strong></div></div></section>
+
+        <div id="tabContent"></div>
+      </div>
+    </main>
+  </div>
+  <div class="toast" id="toast"><span>✓</span><div><strong>Berhasil</strong><p id="toastMessage">Data telah diperbarui.</p></div></div>
+  <div class="modal-backdrop" id="modalBackdrop"><div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><button class="modal-close" id="modalClose">×</button><span class="modal-kicker">REGISTRASI BARU</span><h2 id="modalTitle">Tambah pasien</h2><p>Lengkapi data dasar pasien untuk membuat rekam medis baru.</p><form id="patientForm"><label>Nama lengkap<input name="name" required placeholder="Contoh: Siti Aminah" /></label><label>Nomor NIK<input name="nik" required placeholder="Contoh: 3578xxxxxxxxxxxx" /></label><div class="form-row"><label>Tanggal lahir<input name="birth" type="date" required /></label><label>Jenis kelamin<select name="gender"><option>Perempuan</option><option>Laki-laki</option></select></label></div><label>Nomor telepon<input name="phone" required placeholder="08xx-xxxx-xxxx" /></label><label>Poli tujuan<select name="clinic"><option>Poli Umum</option><option>Poli Penyakit Dalam</option><option>Poli Anak</option><option>Poli Jantung</option></select></label><button class="primary-button full-width" type="submit">Simpan data pasien</button></form></div></div>
+  <script src="modules/core.js"></script>
+  <script src="modules/dashboard.js"></script>
+  <script src="modules/pasien.js"></script>
+  <script src="modules/rawat-jalan.js"></script>
+  <script src="modules/rawat-inap.js"></script>
+  <script src="modules/igd.js"></script>
+  <script src="modules/farmasi.js"></script>
+  <script src="modules/laboratorium.js"></script>
+  <script src="modules/keuangan.js"></script>
+  <script src="modules/satusehat.js"></script>
+  <script src="modules/laporan.js"></script>
+  <script src="modules/profil.js"></script>
+  <script src="modules/hasil.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

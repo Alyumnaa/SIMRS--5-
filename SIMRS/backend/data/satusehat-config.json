@@ -1,0 +1,12 @@
+{
+  "mode": "real",
+  "clientId": "A9W0ThWbcxRfZnpwknxiMeMK0z0XuhdDKugOFuDnVHNGnU84",
+  "clientSecret": "zM1oiYIrfeJEkinieMkULImms3sAqPiO2EACc0jvlbs6WDWNuqgrxnW3FBy5uZmy",
+  "organizationId": "6165cd56-2622-43b8-b518-0e52c6a7f073",
+  "environment": "sandbox",
+  "oauthUrl": "https://api-satusehat-stg.dto.kemkes.go.id/oauth2/v1/accesstoken",
+  "fhirBaseUrl": "https://api-satusehat-stg.dto.kemkes.go.id/fhir-r4/v1",
+  "tokenUrl": "https://api-satusehat-stg.dto.kemkes.go.id/oauth2/v1/accesstoken",
+  "scope": "system/*.read system/*.write",
+  "redirectUri": "http://localhost:4173/callback"
+}
